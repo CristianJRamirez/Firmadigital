@@ -1,3 +1,7 @@
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.*;
 import java.math.BigInteger;
 import java.security.*;
@@ -117,8 +121,22 @@ public class Utils {
     }
 
 
-    public static byte[] signar(byte[] hash, PrivateKey prik) {
-        return null;
+    public static byte[] signar(byte[] hash, PrivateKey prik) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+
+        Cipher cifrado = Cipher.getInstance("RSA");
+        cifrado.init(Cipher.ENCRYPT_MODE, prik);//MODO CIFRAR
+        byte[] buffer= cifrado.doFinal(hash);
+
+        return buffer;
+    }
+
+    public static byte[] desSignar(byte[] hash, PrivateKey prik) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+
+        Cipher cifrado = Cipher.getInstance("RSA");
+        cifrado.init(Cipher.DECRYPT_MODE, prik);//MODO CIFRAR
+        byte[] buffer= cifrado.doFinal(hash);
+
+        return buffer;
     }
 
     /**

@@ -129,9 +129,6 @@ public class FirmarDocumento {
     }
 
 
-
-
-
     //MAIN
     public static void main(String[] args) throws IOException,NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, NoSuchProviderException {
        // Security.insertProviderAt(new org.bouncycastle.jce.provider.BouncyCastleProvider(), 1);

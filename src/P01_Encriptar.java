@@ -1,3 +1,6 @@
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.*;
 import java.security.*;
 
@@ -13,7 +16,7 @@ public class P01_Encriptar {
     public static final String ficheroPublico= "Public.key";
     public static final String ficheroPrivate= "Private.key";
 
-    public static void main(String[] args) throws IOException, NoSuchAlgorithmException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException, ClassNotFoundException, IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchPaddingException {
 
         KeyPair keyPair = null;
         PrivateKey prik = null;
